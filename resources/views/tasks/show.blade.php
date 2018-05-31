@@ -2,11 +2,12 @@
 
 @section('content')
 
-    <h1>id = {{ $task->id }} のTASK詳細ページ</h1>
+    <h1>id = {{ $task->id }} のタスク詳細ページ</h1>
 
-    <p>{{ $task->content }}</p>
+    <p>タイトル: {{ $task->status }}</p>
+    <p>コンテンツ: {{ $task->content }}</p>
     
-     {!! link_to_route('tasks.edit', 'このTASKを編集', ['id' => $task->id]) !!}
+     {!! link_to_route('tasks.edit', 'このタスクを編集', ['id' => $task->id]) !!}
      
       {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
         {!! Form::submit('削除') !!}

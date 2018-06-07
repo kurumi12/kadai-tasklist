@@ -1,3 +1,5 @@
+<!--
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -7,10 +9,10 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
+    
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <!-- Styles -->
+       
         <style>
             html, body {
                 background-color: #fff;
@@ -93,3 +95,16 @@
         </div>
     </body>
 </html>
+-->
+
+@extends('layouts.app')
+
+@section('content')
+    <div class="center jumbotron">
+        <div class="text-center">
+            <h1>Welcome to the Microposts</h1>
+            {!! link_to_route('signup.get', 'Sign up now!', null, ['class' => 'btn btn-lg btn-primary']) !!}
+        </div>
+    </div>
+@endsection
+

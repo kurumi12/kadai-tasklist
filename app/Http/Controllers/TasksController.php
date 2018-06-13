@@ -18,11 +18,19 @@ class TasksController extends Controller
      */
    public function index()
     {
-        $tasks = Task::all();
-
-        return view('tasks.index', [
-            'tasks' => $tasks,
-        ]);
+        if (\Auth::check()) {
+            $user = \Auth::user();
+            $tasks = $user->tasks()->orderBy('id')->paginate(10);
+            
+            // $data += $this->counts($user);
+            return view('tasks.index', [
+               'tasks' => $tasks, 
+            ]);
+               
+               
+        }else {
+            return view('welcome');
+        }
     }
 
     /**
